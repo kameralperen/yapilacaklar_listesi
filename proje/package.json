@@ -1,0 +1,21 @@
+{
+  "name": "nida",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "19.0.1"
+  },
+  "keywords": [],
+  "dependencies": {
+    "animate.css": "*",
+    "express": "*",
+    "firebase-tools": "*",
+    "mysql": "^2.18.1"
+  },
+  "description": ""
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List Projesi</title>
+    <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist//css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
+</head>
+
+<body>
+     <div class="container">
+         <div class="card">
+             <div class="card-header">
+                 <h2>Yapılacaklar Listesi</h2>
+                 <i class="far fa-square"></i>
+             </div>
+
+             <div class="card-body"></div>
+
+             <div class="alert">
+                 <div class="alert alert-warning col-md-8 offset-2">
+                     <b>Herhangi bir eleman bulunmamaktadır.</b>
+                 </div>
+             </div>
+
+             <div class="card-footer">
+                 <input type="text" id="veri" placeholder="Yeni Yapılacaklar">
+                 <button id="kaydet"><i class="fas fa-plus"></i></button>
+             </div>
+         </div>
+     </div>
+
+    
+    
+    <script src="anasayfa.js">
+        const electron = require("electron");
+        const { ipcRenderer } = electron;
+        var baglanti= require('./bag/baglanti')
+
+        let kaydet=document.getElementById("kaydet")
+        let liste_veri=document.getElementById("veri");
+        let sil= document.getElementById("sil")
+        
+
+        //Kaydet butonuna basıldığı zaman listeye eleman ekleyen olay
+        kaydet.addEventListener("click", () => {
+            baglanti.db.query("INSERT INTO `yapilacaklar` (`id`, `metin`) VALUES (NULL, '"+liste_veri.text+"');",(err,res)=>{
+                if(err) throw err;
+            })
+        })
+
+    </script>
+
+    
+</body>
+
+</html>
